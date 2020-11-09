@@ -1,0 +1,7 @@
+EditorConfig file
+root=true
+
+#all files
+[*]
+index_style = tab
+index_size = 4

@@ -1,7 +1,7 @@
 /**
  * Hello world.
  * author:xuyajun
- * package:github.com/aixgl/ch01.1.1
+ * module:github.com/aixgl/ch01/code1.1
  */
 package main
 

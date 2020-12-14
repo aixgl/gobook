@@ -1,8 +1,8 @@
 package main                                                                                                        
 /** 
  * Command Args.	
- * module:github.com/aixgl/ch02/code1.2    
- * source: https://github.com/aixgl/gobook/tree/master/basic.magic/ch02/code1.2
+ * module:github.com/aixgl/ch01/code1.2    
+ * source: https://github.com/aixgl/gobook/tree/master/basic.magic/ch01/code1.2
  */
 import (
     "fmt"

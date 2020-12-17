@@ -26,3 +26,4 @@ func f () {//作用域f函数内
     }
     fmt.Println(gla)                       // output:3
 }
+

@@ -6,5 +6,18 @@
  package main
  
  func main() {
-    int64toint32()
+    // 数字转换
+    int64ToInt32()
+    int32ToInt()
+    float32ToInt()
+    float64ToFloat32()
+    
+    // 数字+布尔与字符串
+    stringToT()
+    TTostring()
+    
+    // 字符串与[]byte
+    byteCal()
+    stringAndBytes()
+    stringWithFor()
  }

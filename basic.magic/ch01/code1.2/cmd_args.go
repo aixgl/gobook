@@ -1,9 +1,10 @@
-package main                                                                                                        
 /** 
  * Command Args.	
  * module:github.com/aixgl/ch01/code1.2    
- * source: https://github.com/aixgl/gobook/tree/master/basic.magic/ch01/code1.2
+ * https://github.com/aixgl/gobook/tree/master/basic.magic/ch01/code1.2
  */
+package main                                                                                                        
+
 import (
     "fmt"
     "os"

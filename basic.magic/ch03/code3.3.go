@@ -34,7 +34,7 @@ func stringAndBytes() {
 // 使用字符串为切片循环
 func stringWithFor() {
     fmt.Println("=======stringWithFor========")
-    s := "Hello,世界"
+    s := "Hello世界"
     
     // 按[]byte解析
     for i := 0; i < len(s); i++ { // byte
@@ -48,5 +48,21 @@ func stringWithFor() {
         rs = append(rs, r)
         fmt.Printf("%c,", r)
     }
-	fmt.Println("\nstring([]rune)------", string(rs))
+    // output: string([]rune)[Hello-世界]
+    fmt.Printf("\nstring([]rune)[%v]\n", string(rs))
+    // output: length []rune[7] string[11]
+    fmt.Printf("length []rune[%v] string[%v]\n", len(rs), len(s))
+}
+
+// StringToBytes converts string to byte slice without a memory allocation.
+func StringToBytes(s string) (b []byte) {
+    sh := *(*reflect.StringHeader)(unsafe.Pointer(&s))
+    bh := (*reflect.SliceHeader)(unsafe.Pointer(&b))
+    bh.Data, bh.Len, bh.Cap = sh.Data, sh.Len, sh.Len
+    return b
+}
+
+// BytesToString converts byte slice to string without a memory allocation.
+func BytesToString(b []byte) string {
+    return *(*string)(unsafe.Pointer(&b))
 }

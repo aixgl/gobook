@@ -29,6 +29,7 @@ func taskFour() {
 	fmt.Println("To do four")
 }
 
+// 利用map分发任务
 func dispatch(choice string) error {
 	choice = strings.ToLower(choice)
 	tasks := map[string]func(){
@@ -44,7 +45,7 @@ func dispatch(choice string) error {
 	fn()
 	return nil
 }
-
+// 用命令行输入命令控制
 func dialogWithStdin() {
 	fmt.Println("=======dialogWithStdin======")
 	in := bufio.NewReader(os.Stdin)

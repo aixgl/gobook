@@ -5,7 +5,9 @@
  */
 package main
 
-import "fmt"
+import (
+    "fmt"
+)
 
 
 func arrayExample() {
@@ -48,7 +50,64 @@ func sliceFirstBlood() {
     fmt.Println(s1)
 }
 
+func sliceAppend() {
+    fmt.Println("=======sliceAppend======")
+    var sRunes []rune
+    for _, r := range "hello, world" {
+        sRunes = append(sRunes, r)
+    }
+    fmt.Printf("append []rune%q\n", sRunes)
+
+    sRunes = append(sRunes, sRunes[0:5]...)
+    fmt.Printf("append []rune%q\n", sRunes)
+}
+
+func sliceStack() {
+    fmt.Println("=======sliceStack======")
+    var sb = []int{1, 2, 4, 8, 16, 32}
+    // 入栈
+    sb = append(sb, 64)
+    fmt.Println(sb) //[1 2 4 8 16 32 64]
+    // 出栈
+    k := sb[len(sb)-1]
+    sb = sb[:len(sb)-1]
+    fmt.Println(k, sb)//64 [1 2 4 8 16 32]
+}
+
+func mapFirstBlood() {
+    fmt.Println("=======mapFirstBlood======")
+    scoreMap := map[string]int{		// 声明且初始化键值
+        "a": 75,				// 键：值
+        "b": 86,
+    }
+    // 增
+    scoreMap["c"] = 90
+    fmt.Printf("%v\n", scoreMap)    // output: map[a:75 b:86 c:90]
+    // 删
+    delete(scoreMap, "b")
+    fmt.Printf("%v\n", scoreMap)    // output: map[a:75 c:90]
+    // 改
+    scoreMap["c"] = 92
+    scoreMap["a"] = 100
+    fmt.Printf("%v\n", scoreMap)    // output: map[a:100 c:92]
+    // 查
+    fmt.Println("search:", scoreMap["a"], scoreMap["c"])    // output: search: 100 92
+    for k, v := range scoreMap {
+        fmt.Println(k,":=", v)
+    }
+    
+    // 安全查 ok:true/false
+    c, ok := scoreMap["c"]
+    if ok {
+        c += 25
+    }
+}
+
 func main() {
     arrayExample()
     sliceFirstBlood()
+    sliceAppend()
+    sliceStack()
+    mapFirstBlood()
+    dialogWithStdin()
 }

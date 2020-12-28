@@ -114,7 +114,49 @@ func errCodeFunc () ERR_CODE {
     return 0
 }
 
-
+// 匿名函数
+func anonymousExs() {
+    sq := func (x int) int {
+        return x * x
+    }
+    fmt.Println("anonymous  sq1:=", sq(2))  // sq1:=4
+}
+// 一个求和加法器
+func adder() func(int) int {
+    sum := 0// 试着修改sum的初始值为1 
+    return func(n int) int {
+        sum += n
+        return sum
+    }
+}
+func anonymousEnv()  {
+    fmt.Println("=======anonymousEnv======")
+    a := adder()
+    fmt.Println(a(0), a(2), a(4))
+}
+// 信号量处理
+func signalHandle() {
+    for {
+        ch := make(chan os.Signal)
+        signal.Notify(ch, syscall.SIGINT, syscall.SIGUSR1, syscall.SIGUSR2,syscall.SIGHUP)
+        sig := <-ch
+        link.DEBUG("Signal received: %v", sig)
+        switch sig {
+        
+        case syscall.SIGHUP:
+            link.DEBUG("get sighup\n")
+        case syscall.SIGINT:
+            os.Exit(1)
+        case syscall.SIGUSR1:
+            link.INFO("usr1\n")
+        case syscall.SIGUSR2:
+            link.INFO("usr2\n")
+        default:
+            panic("we don't have the process")
+            link.INFO("get sig=%v\n",sig)
+        }
+    }
+}
 func main() {
     fmt.Println("=======Chapter 6======")
 }

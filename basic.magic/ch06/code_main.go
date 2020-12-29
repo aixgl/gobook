@@ -157,6 +157,58 @@ func signalHandle() {
         }
     }
 }
+
+func deferStack() {
+    fmt.Println("=======deferStack======")
+    defer fmt.Println("defer 1")
+    defer fmt.Println("defer 2")
+    defer fmt.Println("defer 3")
+}
+
+func deferReturn() int {
+    i := 0
+    addi := func() {
+        i++
+        fmt.Println("defer", i)
+    }
+    defer addi()
+    defer addi()
+    // 此处return i 是值拷贝操作 将i理解为return函数的参数
+    // 等价于s:=i; return s;
+    return i
+}
+
+func deferReturnRef()(i int) {
+    //i := 0  // 与deferReturn的区别
+    addi := func() {
+        i++
+        fmt.Println("defer", i)
+    }
+    defer addi()
+    defer addi()
+    // 此处return i 是值拷贝操作 将i理解为return函数的参数
+    // 等价于s:=i; return s;
+    return i
+}
+
+func recoverPanic() {
+    defer func () {
+        if err := recover(); err == nil {
+            return
+        }
+        // do somethings
+    }()
+    n := 0
+    n--
+    if n == -1 {
+        panic("n must bigger than -1")
+    }
+    // return // 无返回值定义，可将花括号的前一行有return
+}
+
 func main() {
     fmt.Println("=======Chapter 6======")
+    deferStack()
+    fmt.Println("return", deferReturn() )
+    fmt.Println("return", deferReturnRef() )
 }

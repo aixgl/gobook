@@ -206,9 +206,16 @@ func recoverPanic() {
     // return // 无返回值定义，可将花括号的前一行有return
 }
 
+func testMethod() {
+    var s NewString = "nmgs,beijing,shanghai,"
+    ss := s.Split(',')
+    fmt.Println("type NewString.Split:",ss)
+}
+
 func main() {
     fmt.Println("=======Chapter 6======")
     deferStack()
+    testMethod()
     fmt.Println("return", deferReturn() )
     fmt.Println("return", deferReturnRef() )
 }

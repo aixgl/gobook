@@ -11,6 +11,14 @@ type Person struct {
     uid     int64
 }
 
+type Teacher struct {
+    Person
+    School  string
+    office  int
+}
+/** =============================================
+ * 结构体NewString的方法
+ ** =============================================*/
 func (s NewString) Print() {
     fmt.Println(s)
 }
@@ -34,6 +42,45 @@ func (s NewString) Split(sep rune) []string{
     return rtnSlice
 }
 
-func (p Person) GetName() string{
-    return p.name
+/* (ptr *Person) PtrSetName(name string) error 
+ * 方法运行时可以看成定义的这个函数
+ */
+func PtrSetName(ptr *Person, name string) error {
+    ptr.name = name
+    return nil
+}
+/** =============================================
+ * 结构体Person的方法
+ ** =============================================*/
+// 值方法
+func (pv Person) ValGetName() string{
+    return pv.name
+}
+func (pv Person) ValSetName(name string) error{
+    pv.name = name
+    return nil
+}
+// 指针方法
+func (ptr *Person) PtrGetName() string {
+    return ptr.name // 等价(*ptr).name // 错误*ptr.name
+}
+func (ptr *Person) PtrSetName(name string) error{
+    ptr.name = name
+    return nil
+}
+func (ptr *Person) PrintInfo() {
+    fmt.Println("I am", ptr.name, "and", ptr.age, "year old.")
+}
+/** =============================================
+ * 结构体Teacher的方法
+ ** =============================================*/
+func (t *Teacher) GetSchool() string {
+    return t.School
+}
+func (t *Teacher) SetSchool(name string) {
+    t.School = name
+}
+ // 覆盖重写
+func (ptr *Teacher) PrintInfo() {
+    fmt.Println("My school is", ptr.School)
 }

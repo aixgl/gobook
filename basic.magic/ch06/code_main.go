@@ -210,6 +210,26 @@ func testMethod() {
     var s NewString = "nmgs,beijing,shanghai,"
     ss := s.Split(',')
     fmt.Println("type NewString.Split:",ss)
+
+    pv := Person {name:"xiao li"}
+    pv.ValSetName("da ming")
+    fmt.Println(pv.ValGetName(), (&pv).ValGetName())
+    ptr := &pv
+    ptr.PtrSetName("qiao feng")
+    fmt.Println(pv.ValGetName(), ptr.PtrGetName())
+
+    t := &Teacher {
+        Person:Person {
+            name : "DuanYu",
+            age : 15,
+        },
+        School: "清华",
+    }
+    // 继承行，可见性 同包嵌入Person结构体的age也可以被访问
+    fmt.Println("Name :=", t.PtrGetName(), "Age :=", t.age)
+    // 
+    t.PtrSetName("XuZhu")
+    fmt.Println("School:=", t.GetSchool(), "Name :=", t.PtrGetName())
 }
 
 func main() {

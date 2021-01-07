@@ -98,16 +98,16 @@ func (ptr *Teacher) PrintInfo() {
 //==============================================
 type OrderInfo struct {
 	order.User
-    order.Order
+	order.Order
 }
 
 func testCombineStruct() {
-    oi := &OrderInfo{}
-    oi.Uid = 1
-    oi.SetName("god")
-    oi.SetOrderSn(10232000232)
-    // oi.productID = 20 // 编译错误，产品id首字母小写包外是不可见，
-    oi.SetProductID("20")
-    fmt.Println("CombineStruct", oi)
-    // oi.save() // 编译报错，方法同样包外首字母小写不可见
+	oi := &OrderInfo{}
+	oi.Uid = 1
+	oi.SetName("god")
+	oi.SetOrderSn(10232000232)
+	// oi.productID = 20 // 编译错误，产品id首字母小写包外是不可见，
+	oi.SetProductID(20)
+	fmt.Println("CombineStruct", oi)
+	// oi.save() // 编译报错，方法同样包外首字母小写不可见
 }

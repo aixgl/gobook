@@ -213,6 +213,7 @@ func recoverPanic() {
 }
 
 func testMethod() {
+    fmt.Println("=======testMethod ======")
 	var s NewString = "nmgs,beijing,shanghai,"
 	ss := s.Split(',')
 	fmt.Println("type NewString.Split:", ss)
@@ -236,6 +237,8 @@ func testMethod() {
 	//
 	t.PtrSetName("XuZhu")
 	fmt.Println("School:=", t.GetSchool(), "Name :=", t.PtrGetName())
+    
+    testCombineStruct()
 }
 
 func main() {

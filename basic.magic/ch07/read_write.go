@@ -25,3 +25,16 @@ func (sp *space) Write(p []byte)(int, error) {
     sp.str = string(p)
     return len(sp.str), nil
 }
+
+func InterfaceConvType(arg1 interface{}) {
+    switch arg1.(type) {
+    case bool:
+        fmt.Println("Type of param is bool ", arg1)
+    case int, int32, int64:
+        fmt.Println("Type of param is int ", arg1)
+    case float32, float64:
+        fmt.Println("Type of param is float ", arg1)
+    default:
+            fmt.Println("Type of param is not valid\n", arg1)
+    }
+}

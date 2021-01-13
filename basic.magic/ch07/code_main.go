@@ -35,4 +35,5 @@ func EmptyInterface() {
 
 func main () {
     EmptyInterface()
+
 }

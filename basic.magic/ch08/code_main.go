@@ -17,4 +17,6 @@ func main () {
     
     jsonSimpleUnmarshal()
     jsonDefine()
+    
+    encodeProto()
 }

@@ -17,4 +17,7 @@ func main() {
 	jsonDefine()
 
 	encodeProto()
+    
+    XmlMarshal()
+    XmlUnmarshal()
 }

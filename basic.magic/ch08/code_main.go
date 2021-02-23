@@ -6,17 +6,15 @@
 package main
 
 import (
-    "fmt"
+//"fmt"
 )
 
+func main() {
+	jsonSimpleMarshal()
+	jsonTagEmptyMarshal()
 
+	jsonSimpleUnmarshal()
+	jsonDefine()
 
-func main () {
-    jsonSimpleMarshal()
-    jsonTagEmptyMarshal()
-    
-    jsonSimpleUnmarshal()
-    jsonDefine()
-    
-    encodeProto()
+	encodeProto()
 }

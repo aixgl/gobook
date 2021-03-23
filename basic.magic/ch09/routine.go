@@ -2,7 +2,7 @@ package main
 
 import (
     "fmt"
-
+    "time"
 )
 
 func printer(num int) {
@@ -14,4 +14,5 @@ func forRountine() {
     for i := 0; i < 10; i++ {
         go printer(i)
     }
+    time.Sleep(2 * time.Second)
 }

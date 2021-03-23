@@ -11,4 +11,5 @@ import (
 
 func main() {
     forRountine()
+    channelWaitGoroutine()
 }

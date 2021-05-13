@@ -12,4 +12,12 @@ import (
 func main() {
     forRountine()
     channelWaitGoroutine()
+    channelSyncGoroutines()
+    channelSyncGoroutines2()
+    
+    concurrencyChannel()
+    concurrencyWaitGroup()
+    
+    timeoutSelect()
+    randSelectDemo()
 }

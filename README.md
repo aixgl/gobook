@@ -1,6 +1,8 @@
 ## gobook
 [Go语言筑基](https://github.com/aixgl/gobook/blob/master/golang.basic.magic.pdf)
 
+[Go环境安装](https://github.com/aixgl/gobook/blob/master/install.go.md)
+
 ## 内容简介
 golang基础教程； 基础深度挖掘；阐述一些容易忽略的bug说明。本书以一个学习者的角度总结积累；尽可能的简略，抓住重点；
 

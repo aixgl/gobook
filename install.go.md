@@ -63,7 +63,7 @@ $ `go version`
 
 输出：
 
-$ go version go1.14.2 linux/amd64
+$ go version go1.15.5 linux/amd64
 
 #### •	GOPATH添加
 GOPATH是Go工作环境变量，一般添加在开发者用户下，比如多人在同一台服务器上作业。又有各自的工作账号以及工作目录。
